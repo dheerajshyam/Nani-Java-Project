@@ -1,3 +1,5 @@
+// Change path from my macBook to current macBook, i.e., from /Users/dheerajshyam to current macBook /Users/<username>
+
 package com.nani.file_explorer;
 
 import java.awt.BorderLayout;
