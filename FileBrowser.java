@@ -1,4 +1,4 @@
-// Change path from my macBook to current macBook, i.e., from /Users/dheerajshyam to current macBook /Users/<username>
+// Change "dheerajshyam" to current macBook username.
 
 package com.nani.file_explorer;
 
@@ -73,6 +73,8 @@ public class FileBrowser extends JPanel implements ComponentListener {
 	private int height = 700;
 	private FileSystemView fileSystemView;
 	private JTextArea textArea;
+	
+	private String username = "dheerajshyam";
 
 	private void build() {
 //		width = 950;
@@ -191,7 +193,7 @@ public class FileBrowser extends JPanel implements ComponentListener {
 			remplirShowPane(file, 0);
 		}
 
-//		File fileRoot = fileSystemView.getHomeDirectory();// new File("C:\\Users\\The Mh\\Desktop\\");
+//		File fileRoot = fileSystemView.getHomeDirectory();// new File("/Users/<username>/Desktop");
 
 //		File[] roots = fileSystemView.getRoots();
 
@@ -386,7 +388,7 @@ public class FileBrowser extends JPanel implements ComponentListener {
 
 	@Override
 	public void paintComponent(Graphics g) {
-		super.paintComponent(g);// clear and repaint
+		super.paintComponent(g); // clear and repaint
 		g.drawImage(getImg("img/background7.jpg"), 0, 0, getWidth(), getHeight(), this);
 		g.drawImage(getImg("img/Hacker-silhouette.jpg"), (int) treeScroll.getWidth(), 0,
 				(int) getWidth() - treeScroll.getWidth(), getHeight(), this);
@@ -517,7 +519,7 @@ public class FileBrowser extends JPanel implements ComponentListener {
 				lines += line + "\n";
 			reader.close();
 		} catch (Exception e) {
-			lines = "Une erreur s'est produite durant la lecture du flux : " + e.getMessage();
+			lines = e.getMessage();
 		}
 		return lines;
 	}
@@ -568,7 +570,7 @@ public class FileBrowser extends JPanel implements ComponentListener {
 	{
 		try
 		{
-			return new ImageIcon("/Users/dheerajshyam/eclipse-workspace/File Explorer/src/com/nani/file_explorer/" + sh).getImage();
+			return new ImageIcon("/Users/"+this.username+"/eclipse-workspace/File Explorer/src/com/nani/file_explorer/" + sh).getImage();
 		}
 		catch (Exception e)
 		{
@@ -722,14 +724,10 @@ public class FileBrowser extends JPanel implements ComponentListener {
 	}
 
 	@Override
-	public void componentHidden(ComponentEvent arg0) {
-
-	}
+	public void componentHidden(ComponentEvent arg0) {}
 
 	@Override
-	public void componentMoved(ComponentEvent arg0) {
-
-	}
+	public void componentMoved(ComponentEvent arg0) {}
 
 	@Override
 	public void componentResized(ComponentEvent arg0) {
@@ -741,10 +739,5 @@ public class FileBrowser extends JPanel implements ComponentListener {
 	}
 
 	@Override
-	public void componentShown(ComponentEvent arg0) {
-
-	}
-
-	// --------------------- test
-	// ------------------------------------------------------------------
+	public void componentShown(ComponentEvent arg0) {}
 }
